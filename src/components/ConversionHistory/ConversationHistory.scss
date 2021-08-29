@@ -1,0 +1,59 @@
+@import 'src/assets/style/utils';
+
+.conversation-history {
+  &__content {
+    @include container;
+    padding: 4rem 7rem;
+    border-radius: $border_radius;
+    background-color: $color_background;
+  }
+
+  &__title {
+    @include h2;
+    margin: 0;
+
+    &:not(:last-child) {
+      margin-bottom: 5rem;
+    }
+  }
+
+  &__list {
+    @include reset-list;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 20rem;
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: block;
+      width: 1px;
+      height: calc(100% + 9rem);
+      background-color: $color_divider;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      transform: translate(-50%, -50%);
+      content: '';
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 5rem;
+    }
+  }
+
+  &__item {
+    height: 4rem;
+    max-width: calc((100% - 12rem) / 2);
+
+    &:nth-child(n + 6) {
+      align-self: flex-end;
+    }
+  }
+
+  &__clear-btn {
+    @include text;
+    min-width: 19.8rem;
+  }
+}

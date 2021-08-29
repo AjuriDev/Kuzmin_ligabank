@@ -24,8 +24,17 @@ const StoreNameSpace = {
   FORM: `FORM`,
 };
 
+const BtnTypes = {
+  PRIMARY: 'primary',
+  SECONDARY: 'secondary',
+};
+
+const MIN_MONETARY_VALUE = 0;
+
 export {
   AppRoute,
   APIRoute,
   StoreNameSpace,
+  BtnTypes,
+  MIN_MONETARY_VALUE,
 };

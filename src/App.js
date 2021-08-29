@@ -1,6 +1,6 @@
 import React from 'react';
 import {Switch, Route, Router as BrowserRouter} from 'react-router-dom';
-import browserHistory from "./assets/js/browser-history";
+import browserHistory from './assets/js/browser-history';
 import ConverterScreen from './screens/ConverterScreen';
 import NotFoundScreen from './screens/NotFoundScreen';
 import {AppRoute} from './assets/js/const';

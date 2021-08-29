@@ -1,0 +1,35 @@
+@import 'src/assets/style/utils';
+
+.btn {
+  @include reset-btn;
+  @include btn-text;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.6rem;
+  border-radius: $border-radius;
+  cursor: pointer;
+  transition: opacity $transition_duration ease;
+
+  @include hover {
+    opacity: 0.9;
+  }
+
+  @include active {
+    opacity: 0.8;
+  }
+
+  &--primary {
+    color: $color_text_primary_invert;
+    background-color: $color_accent;
+  }
+
+  &--secondary {
+    color: $color_text_primary;
+    background-color: $color_background;
+
+    @include active {
+      opacity: 0.7;
+    }
+  }
+}

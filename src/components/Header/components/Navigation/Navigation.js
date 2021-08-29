@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { AppRoute } from "../../../../assets/js/const";
+import { AppRoute } from '../../../../assets/js/const';
 
 import './Navigation.scss';
 
@@ -33,8 +33,8 @@ const Navigation = () => {
     return (
         <nav className='navigation'>
             <ul className='navigation__list'>
-                {NAV_LINKS.map(({ href, text }) => (
-                    <li>
+                {NAV_LINKS.map(({ href, text }, i) => (
+                    <li key={`${ text }-${ i }`}>
                         <Link
                             to={ href }
                             className={`navigation__link ${ pathname === href ? 'navigation__link--active' : '' }`}

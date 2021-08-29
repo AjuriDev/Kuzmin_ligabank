@@ -41,8 +41,8 @@ const Footer = () => {
                     </p>
                 </div>
                 <ul className='footer__navigation'>
-                    {NAV_LINKS.map(({ href, text }) => (
-                        <li>
+                    {NAV_LINKS.map(({ href, text }, i) => (
+                        <li key={`${ text }-${ i }`}>
                             <Link to={ href }>{ text }</Link>
                         </li>
                     ))}

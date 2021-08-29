@@ -1,0 +1,28 @@
+@import 'src/assets/style/utils';
+
+div.currency-select {
+  display: flex;
+
+  &__control {
+    flex-basis: 100%;
+    border: 1px solid $color_input_border;
+    border-radius: $border_radius;
+    box-shadow: none;
+
+    @include hover {
+      border-color: $color_accent;
+    }
+  }
+
+  &__indicator {
+    color: inherit;
+
+    @include hover {
+      color: inherit;
+    }
+  }
+
+  .currency-select__indicator-separator {
+    display: none;
+  }
+}

@@ -1,0 +1,12 @@
+@import 'src/assets/style/utils';
+
+.page-head {
+  &__content {
+    @include container;
+  }
+
+  &__title {
+    @include h1;
+    margin: 0;
+  }
+}

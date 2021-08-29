@@ -1,0 +1,100 @@
+@import 'src/assets/style/utils';
+
+.converter {
+  &__content {
+    @include container;
+  }
+
+  &__calculator,
+  &__footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    &:not(:last-child) {
+      margin-bottom: 8.5rem;
+    }
+  }
+
+  &__calculator {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      bottom: 1.3rem;
+      left: 50%;
+      display: block;
+      width: 5rem;
+      height: 3.4rem;
+      transform: translateX(-50%);
+      content: url("data:image/svg+xml,%3Csvg width='56' height='36' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 1L3 9l16 8M3 9h50M37 35l16-8-16-8M53 27H3' stroke='%231F1E25' stroke-width='2'/%3E%3C/svg%3E");
+    }
+  }
+
+  &__input-container {
+    display: flex;
+    flex: 0 0 calc((100% - 12rem) / 2);
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  &__input-block {
+    display: block;
+    flex: 0 1 39rem;
+
+    &--date {
+      position: relative;
+
+      .converter__input {
+        padding-right: 7.9rem;
+      }
+
+      &::after {
+        position: absolute;
+        top: 0.7rem;
+        right: 2rem;
+        display: block;
+        width: 3.9rem;
+        height: 4.2rem;
+        content: url("data:image/svg+xml,%3Csvg width='41' height='44' viewBox='0 0 41 44' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 14.183h39M8 1l.09 9.742M33 1v10M40 40V9a3 3 0 00-3-3H4a3 3 0 00-3 3v31a3 3 0 003 3h33a3 3 0 003-3z' stroke='%23000'/%3E%3Cpath d='M5 19h3M12.09 19h3M19.182 19h3M26.273 19h3M33.363 19h3M5 25h3M12.09 25h3M19.182 25h3M26.273 25h3M33.363 25h3M5 31h3M12.09 31h3M19.182 31h3M26.273 31h3M33.363 31h3M5 37h3M12.09 37h3M19.182 37h3M26.273 37h3M33.363 37h3' stroke='%232C36F2' stroke-width='3'/%3E%3C/svg%3E");
+      }
+    }
+  }
+
+  &__input-name {
+    @include h3;
+    display: block;
+    margin: 0 0 2.2rem;
+  }
+
+  &__input {
+    @include input-text;
+    display: block;
+    width: 100%;
+    min-height: 6rem;
+    padding: 1rem 2rem;
+    border: 1px solid $color_input_border;
+    border-radius: $border_radius;
+    text-align: center;
+    transition: border-color $transition_duration ease;
+
+    &:focus {
+      border-color: $color_accent;
+    }
+
+    @include hover {
+      border-color: $color_accent;
+    }
+  }
+
+  &__select {
+    @include select-text;
+    flex: 0 0 12rem;
+    min-height: 6rem;
+    text-transform: uppercase;
+  }
+
+  &__save-btn {
+    flex: 0 1 38.2rem;
+  }
+}

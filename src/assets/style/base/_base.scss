@@ -56,6 +56,11 @@ body {
   font-size: 1.6rem;
 }
 
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
 .visually-hidden {
   @include visually-hidden();
 }
