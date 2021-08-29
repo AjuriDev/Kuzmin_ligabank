@@ -1,0 +1,40 @@
+// --
+// This file contains all application-wide Sass variables.
+// ==
+
+// regular font family
+$font_primary: 'Roboto', 'Arial', sans-serif !default;
+
+// colors
+//$color_background
+
+$color_text_primary: #1F1E25;
+$color_text_primary_invert: #F6F7FF;
+$color_text_secondary: #707C87;
+$color_text_secondary_invert: #E0E1EA;
+$color_accent: #2C36F2;
+
+$color_input_border: #1F1E25;
+$color_divider: #C1C2CA;
+$color_background: #F6F7FF;
+
+$color_white: #FFFFFF;
+$color_black: #000000;
+
+
+// container
+$width_container: 117rem;
+$width_container_tablet: calc(100% - 8rem);
+$width_container_mobile: calc(100% - 4rem);
+
+$margin_container_desktop: 4rem;
+$margin_container_tablet: 4rem;
+
+// gutters
+$width_gutter: 1.6rem;
+
+//borders
+$border_radius: 4px;
+
+//transitions
+$transition_duration: 250ms;

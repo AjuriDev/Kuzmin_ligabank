@@ -1,0 +1,27 @@
+@import 'src/assets/style/utils';
+
+.navigation {
+  padding: 2rem 0;
+
+  &__list {
+    @include reset-list;
+    @include flex-gap;
+  }
+
+  &__link {
+    @include reset-link;
+    @include text;
+    @include underline;
+    transition:
+            opacity $transition_duration ease,
+            text-decoration-color $transition_duration ease;
+
+    @include active {
+      opacity: 0.7;
+    }
+
+    &--active {
+      color: $color_accent;
+    }
+  }
+}

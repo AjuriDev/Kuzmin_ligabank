@@ -1,0 +1,13 @@
+@import 'src/assets/style/utils';
+
+.logo {
+  display: block;
+  flex: 0 0 14.9rem;
+  max-width: 14.9rem;
+
+  > img {
+    display: block;
+    width: 14.9rem;
+    height: 2.5rem;
+  }
+}

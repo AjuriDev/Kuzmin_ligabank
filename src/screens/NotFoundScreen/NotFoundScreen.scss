@@ -1,0 +1,7 @@
+@import 'src/assets/style/utils';
+
+.not-found {
+  @include container;
+  @include title-big;
+  padding: 4rem 0;
+}

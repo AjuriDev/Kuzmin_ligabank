@@ -1,0 +1,8 @@
+@mixin underline($color: $color_accent) {
+  text-decoration: underline rgba($color, 0);
+  text-decoration-skip-ink: none;
+
+  @include hover {
+    text-decoration-color: $color;
+  }
+}

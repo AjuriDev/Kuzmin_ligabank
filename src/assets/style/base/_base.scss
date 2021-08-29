@@ -1,0 +1,61 @@
+// --
+// base
+// ==
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  outline: none;
+}
+
+// start sticky footer
+[id="root"] {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  footer {
+    margin-top: auto;
+  }
+}
+// end
+
+// --
+// base styles
+// ==
+
+html,
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  margin: 0;
+  font-family: $font_primary;
+}
+
+html {
+  color: $color_text_primary;
+  font-size: 62.5%;
+  background: $color_white; // in some versions Opera background is black by default
+
+  @media screen and (max-width: 767px) {
+    font-size: calc(10px + 13 * (100vw - 375px) / 447);
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    font-size: calc(10px + 4 * (100vw - 768px) / 255);
+  }
+
+  @media (min-width: 1024px) and (max-width: 1360px) {
+    font-size: calc(8px + 2 * (100vw - 1024px) / 336);
+  }
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+.visually-hidden {
+  @include visually-hidden();
+}
