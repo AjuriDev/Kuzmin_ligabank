@@ -2,6 +2,34 @@
 
 .not-found {
   @include container;
-  @include title-big;
   padding: 4rem 0;
+
+  &__title {
+    @include title-big;
+    margin: 0;
+
+    &:not(:last-child) {
+      margin-bottom: 4rem;
+    }
+  }
+
+  &__redirect-btn {
+    @include h3;
+    min-width: 28rem;
+
+    @include hover {
+      &::after {
+        transform: translateX(1.2rem);
+      }
+    }
+
+    &::after {
+      @include input-text;
+      display: block;
+      margin-left: 1.4rem;
+      transition: transform $transition_duration ease;
+      will-change: transform;
+      content: '→';
+    }
+  }
 }

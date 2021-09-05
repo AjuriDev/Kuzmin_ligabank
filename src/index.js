@@ -9,19 +9,9 @@ import reportWebVitals from './reportWebVitals';
 
 const store = configureStore({
     reducer,
-    // middleware: (getDefaultMiddleware) =>
-    //     getDefaultMiddleware({
-    //         thunk: {
-    //             extraArgument: api
-    //         },
-    //     }).concat(redirect)
 });
 
 ReactDOM.render(
-  // <React.StrictMode>
-  //   <App />
-  // </React.StrictMode>,
-  //   document.querySelector(`#root`)
     <Provider store={ store }>
         <App />
     </Provider>,
