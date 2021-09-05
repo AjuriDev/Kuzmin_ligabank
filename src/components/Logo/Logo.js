@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { AppRoute } from "../../assets/js/const";
 import PropTypes from "prop-types";
 import logo from "../../assets/i/logo.svg";
-import Btn from "../controls/Btn";
 
 import './Logo.scss';
 
@@ -19,7 +18,7 @@ const Logo = ({ mixClass }) => {
     );
 };
 
-Btn.propTypes = {
+Logo.propTypes = {
     mixClass: PropTypes.string,
 }
 

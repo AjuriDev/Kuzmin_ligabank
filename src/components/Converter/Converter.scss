@@ -3,6 +3,8 @@
 .converter {
   &__content {
     @include container;
+    position: relative;
+    min-height: 25.8rem;
   }
 
   &__calculator,
@@ -56,6 +58,7 @@
         display: block;
         width: 3.9rem;
         height: 4.2rem;
+        cursor: pointer;
         content: url("data:image/svg+xml,%3Csvg width='41' height='44' viewBox='0 0 41 44' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 14.183h39M8 1l.09 9.742M33 1v10M40 40V9a3 3 0 00-3-3H4a3 3 0 00-3 3v31a3 3 0 003 3h33a3 3 0 003-3z' stroke='%23000'/%3E%3Cpath d='M5 19h3M12.09 19h3M19.182 19h3M26.273 19h3M33.363 19h3M5 25h3M12.09 25h3M19.182 25h3M26.273 25h3M33.363 25h3M5 31h3M12.09 31h3M19.182 31h3M26.273 31h3M33.363 31h3M5 37h3M12.09 37h3M19.182 37h3M26.273 37h3M33.363 37h3' stroke='%232C36F2' stroke-width='3'/%3E%3C/svg%3E");
       }
     }
@@ -96,5 +99,9 @@
 
   &__save-btn {
     flex: 0 1 38.2rem;
+  }
+
+  &__error {
+    @include h3;
   }
 }
