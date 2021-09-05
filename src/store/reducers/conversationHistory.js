@@ -14,7 +14,7 @@ const conversationHistory = createReducer(initialState, (builder) => {
   builder.addCase(saveConversation, (state, action) => {
     const updatedItems = [...state.items];
     updatedItems.unshift(action.payload);
-    state.items = updatedItems.slice(0, HISTORY_LENGTH - 1);
+    state.items = updatedItems.slice(0, HISTORY_LENGTH);
   });
 
   builder.addCase(clearConversationHistory, (state, action) => {

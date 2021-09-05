@@ -56,4 +56,8 @@
     @include text;
     min-width: 19.8rem;
   }
+
+  &__empty {
+    @include h3;
+  }
 }

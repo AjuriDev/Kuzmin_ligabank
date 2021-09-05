@@ -1,12 +1,16 @@
 import React from 'react';
+import { useHistory } from "react-router-dom";
 import Btn from '../controls/Btn';
 import blackCard from '../../assets/i/card-black.png';
 import whiteCard from '../../assets/i/card-white.png';
 import { BtnTypes } from '../../assets/js/const';
+import { AppRoute } from "../../assets/js/const";
 
 import './CreditBanner.scss';
 
 const CreditBanner = () => {
+    const history = useHistory();
+
     return (
         <section className='credit-banner'>
             <div className='credit-banner__content'>
@@ -16,6 +20,10 @@ const CreditBanner = () => {
                     <Btn
                         mixClass='credit-banner__btn'
                         type={ BtnTypes.SECONDARY }
+                        onClick={(e) => {
+                            e.preventDefault();
+                            history.push(AppRoute.CREDIT)
+                        }}
                     >
                         Рассчитать кредит
                     </Btn>

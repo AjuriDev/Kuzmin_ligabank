@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Btn from '../controls/Btn';
 import Select from 'react-select';
 import Loader from '../Loader';
@@ -15,6 +16,7 @@ import {
 } from '../../assets/js/const';
 import roundFractional from '../../assets/js/utils/roundFractional';
 import dayjs from 'dayjs';
+import { saveConversation } from '../../store/actions/conversationHistory';
 
 import './Converter.scss';
 import '../../assets/style/plugins/select.scss';
@@ -33,6 +35,7 @@ const getFormattedDate = (date, format) => {
 };
 
 const Converter = () => {
+    const dispatch = useDispatch();
     const initialDate = new Date();
 
     const [currencyFrom, setCurrencyFrom] = useState(getSelectOption(InitialConversationCurrencies.FROM));
@@ -110,6 +113,22 @@ const Converter = () => {
         }
     };
 
+    const handleConversationSave = (e) => {
+        e.preventDefault();
+
+        dispatch(saveConversation({
+            date: getFormattedDate(date, CurrencyDateFormats.CONVERSATION_HISTORY_VIEW),
+            from: {
+                value: availableValue,
+                currency: currencyFrom.value,
+            },
+            to: {
+                value: desiredValue,
+                currency: currencyTo.value,
+            },
+        }));
+    };
+
     return (
         <section className='converter'>
             <div className='converter__content'>
@@ -174,7 +193,7 @@ const Converter = () => {
                                         <DatePicker
                                             selected={date}
                                             onChange={ setDate }
-                                            dateFormat={ CurrencyDateFormats.VIEW }
+                                            dateFormat={ CurrencyDateFormats.DATEPICKER_VIEW }
                                             minDate={ new Date(dayjs().subtract(DAYS_BEFORE_CNT, 'day')) }
                                             maxDate={ new Date() }
                                             className='converter__input'
@@ -182,7 +201,12 @@ const Converter = () => {
                                             popperPlacement='right-start'
                                         />
                                     </div>
-                                    <Btn mixClass='converter__save-btn'>Сохранить результат</Btn>
+                                    <Btn
+                                        mixClass='converter__save-btn'
+                                        onClick={ handleConversationSave }
+                                    >
+                                        Сохранить результат
+                                    </Btn>
                                 </div>
                             </>
                         )

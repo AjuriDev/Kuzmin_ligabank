@@ -12,12 +12,14 @@ const Btn = (props) => {
         type = BtnTypes.PRIMARY,
         functionalType = DEFAULT_FUNCTIONAL_TYPE,
         children,
+        onClick,
     } = props;
 
     return (
         <button
             className={`btn btn--${ type } ${ mixClass || '' }`}
             type={ functionalType }
+            onClick={ onClick }
         >
             { children }
         </button>
@@ -31,7 +33,8 @@ Btn.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.node,
         PropTypes.element,
-    ])
+    ]),
+    onClick: PropTypes.func,
 }
 
 export default Btn;

@@ -38,7 +38,8 @@ const CURRENCY_CONVERTER_BASE_URL = 'https://cdn.jsdelivr.net/gh/fawazahmed0/cur
 
 const CurrencyDateFormats = {
   REQUEST: 'YYYY-MM-DD',
-  VIEW: 'd.MM.yyyy',
+  DATEPICKER_VIEW: 'd.MM.yyyy',
+  CONVERSATION_HISTORY_VIEW: 'D.MM.YYYY',
 }
 
 const DAYS_BEFORE_CNT = 7;

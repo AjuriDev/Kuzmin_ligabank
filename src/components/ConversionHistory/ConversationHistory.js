@@ -1,142 +1,49 @@
 import React from 'react';
+import { useSelector, useDispatch } from "react-redux";
 import Btn from '../controls/Btn';
 import Conversation from './components/Conversation';
+import { clearConversationHistory } from "../../store/actions/conversationHistory";
 
 import './ConversationHistory.scss';
 
-const conversations = [
-    {
-        date: '25.11.2020',
-        from: {
-            value: '1000',
-            currency: 'rub',
-        },
-        to: {
-            value: '13,1234',
-            currency: 'usd',
-        },
-    },
-    {
-        date: '25.11.2020',
-        from: {
-            value: '1000',
-            currency: 'rub',
-        },
-        to: {
-            value: '13,1234',
-            currency: 'usd',
-        },
-    },
-    {
-        date: '25.11.2020',
-        from: {
-            value: '1000',
-            currency: 'rub',
-        },
-        to: {
-            value: '13,1234',
-            currency: 'usd',
-        },
-    },
-    {
-        date: '25.11.2020',
-        from: {
-            value: '1000',
-            currency: 'rub',
-        },
-        to: {
-            value: '13,1234',
-            currency: 'usd',
-        },
-    },
-    {
-        date: '25.11.2020',
-        from: {
-            value: '1000',
-            currency: 'rub',
-        },
-        to: {
-            value: '13,1234',
-            currency: 'usd',
-        },
-    },
-    {
-        date: '25.11.2020',
-        from: {
-            value: '1000',
-            currency: 'rub',
-        },
-        to: {
-            value: '13,1234',
-            currency: 'usd',
-        },
-    },
-    {
-        date: '25.11.2020',
-        from: {
-            value: '1000',
-            currency: 'rub',
-        },
-        to: {
-            value: '13,1234',
-            currency: 'usd',
-        },
-    },
-    {
-        date: '25.11.2020',
-        from: {
-            value: '1000',
-            currency: 'rub',
-        },
-        to: {
-            value: '13,1234',
-            currency: 'usd',
-        },
-    },
-    {
-        date: '25.11.2020',
-        from: {
-            value: '1000',
-            currency: 'rub',
-        },
-        to: {
-            value: '13,1234',
-            currency: 'usd',
-        },
-    },
-    {
-        date: '25.11.2020',
-        from: {
-            value: '1000',
-            currency: 'rub',
-        },
-        to: {
-            value: '13,1234',
-            currency: 'usd',
-        },
-    },
-];
-
 const ConversationHistory = () => {
+    const dispatch = useDispatch();
+    const { items: conversations } = useSelector((state) => state.CONVERSATION_HISTORY);
+
+    const handleConversationHistoryClear = (e) => {
+        e.preventDefault();
+
+        dispatch(clearConversationHistory());
+    };
     return (
         <section className='conversation-history'>
             <div className='conversation-history__content'>
                 <h2 className='conversation-history__title'>
                     История конвертации
                 </h2>
-                <ul className='conversation-history__list'>
-                    {conversations.map((conversation, i) => (
-                        <li
-                            key={`${ conversation.date }-${ i }`}
-                            className='conversation-history__item'
-                        >
-                            <Conversation conversation={ conversation } />
-                        </li>
-                    ))}
-                </ul>
-                <Btn mixClass='conversation-history__clear-btn'>
-                    Очистить историю
-                </Btn>
+                {!conversations.length > 0
+                    ? (<div className='conversation-history__empty'>Конвертации отсутствуют</div>)
+                    : (
+                        <>
+                            <ul className='conversation-history__list'>
+                                {conversations.map((conversation, i) => (
+                                    <li
+                                        key={`${ conversation.date }-${ i }`}
+                                        className='conversation-history__item'
+                                    >
+                                        <Conversation conversation={ conversation } />
+                                    </li>
+                                ))}
+                            </ul>
+                            <Btn
+                                mixClass='conversation-history__clear-btn'
+                                onClick={ handleConversationHistoryClear }
+                            >
+                                Очистить историю
+                            </Btn>
+                        </>
+                    )
+                }
             </div>
         </section>
     );
