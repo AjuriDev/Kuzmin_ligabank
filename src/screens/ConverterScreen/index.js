@@ -1,3 +1,3 @@
-import ConverterScreen from "./ConverterScreen";
+import ConverterScreen from './ConverterScreen';
 
 export default ConverterScreen;

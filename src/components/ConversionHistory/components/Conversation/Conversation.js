@@ -23,10 +23,10 @@ const Conversation = (props) => {
             >
                 { date }
             </time>
-            <div className="conversation__value conversation__value--from">
+            <div className='conversation__value conversation__value--from'>
                 { from.value + ' ' + from.currency }
             </div>
-            <div className="conversation__value conversation__value--to">
+            <div className='conversation__value conversation__value--to'>
                 { to.value + ' ' + to.currency }
             </div>
         </div>

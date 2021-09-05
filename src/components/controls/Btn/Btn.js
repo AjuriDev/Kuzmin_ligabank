@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { BtnTypes } from "../../../assets/js/const";
+import { BtnTypes } from '../../../assets/js/const';
 
 import './Btn.scss';
 

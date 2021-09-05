@@ -1,3 +1,3 @@
-import NotFoundScreen from "./NotFoundScreen";
+import NotFoundScreen from './NotFoundScreen';
 
 export default NotFoundScreen;

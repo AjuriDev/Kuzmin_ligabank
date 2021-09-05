@@ -121,7 +121,7 @@ const ConversationHistory = () => {
     return (
         <section className='conversation-history'>
             <div className='conversation-history__content'>
-                <h2 className="conversation-history__title">
+                <h2 className='conversation-history__title'>
                     История конвертации
                 </h2>
                 <ul className='conversation-history__list'>

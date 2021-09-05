@@ -8,20 +8,8 @@ const AppRoute = {
   NOT_FOUND: `/404`,
 };
 
-const APIRoute = {
-  OFFERS: `/hotels`,
-  LOGIN: `/login`,
-  LOGOUT: `/logout`,
-  NEARBY: `/nearby`,
-  FAVORITE: `/favorite`,
-  REVIEWS: `/comments`
-};
-
 const StoreNameSpace = {
-  SERVER: `SERVER`,
-  MAIN: `MAIN`,
-  USER: `USER`,
-  FORM: `FORM`,
+  CONVERSATION_HISTORY: `CONVERSATION_HISTORY`,
 };
 
 const BtnTypes = {
@@ -31,7 +19,10 @@ const BtnTypes = {
 
 const CURRENCIES = ['RUB', 'USD', 'EUR', 'GBP', 'CNY'];
 
-const MIN_MONETARY_VALUE = 0;
+const MonetaryValues = {
+  MIN: 0,
+  MAX: 10000000,
+}
 
 const InitialConversationCurrencies = {
   FROM: 'RUB',
@@ -54,17 +45,19 @@ const DAYS_BEFORE_CNT = 7;
 
 const CURRENCY_DECIMAL = 100;
 
+const HISTORY_LENGTH = 10;
+
 export {
   AppRoute,
-  APIRoute,
   StoreNameSpace,
   BtnTypes,
   CURRENCIES,
-  MIN_MONETARY_VALUE,
+  MonetaryValues,
   InitialConversationCurrencies,
   CurrencyChangingTypes,
   CURRENCY_CONVERTER_BASE_URL,
   CurrencyDateFormats,
   CURRENCY_DECIMAL,
   DAYS_BEFORE_CNT,
+  HISTORY_LENGTH,
 };

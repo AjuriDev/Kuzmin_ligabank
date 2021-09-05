@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { AppRoute } from "../../assets/js/const";
-import PropTypes from "prop-types";
-import logo from "../../assets/i/logo.svg";
+import { AppRoute } from '../../assets/js/const';
+import PropTypes from 'prop-types';
+import logo from '../../assets/i/logo.svg';
 
 import './Logo.scss';
 

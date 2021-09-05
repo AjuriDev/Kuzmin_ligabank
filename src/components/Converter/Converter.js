@@ -1,24 +1,24 @@
 import React, {useEffect, useState} from 'react';
-import Btn from "../controls/Btn";
+import Btn from '../controls/Btn';
 import Select from 'react-select';
-import Loader from "../Loader";
-import DatePicker, { registerLocale } from "react-datepicker";
+import Loader from '../Loader';
+import DatePicker, { registerLocale } from 'react-datepicker';
 import ru from 'date-fns/locale/ru';
 import {
     CURRENCIES,
-    MIN_MONETARY_VALUE,
+    MonetaryValues,
     InitialConversationCurrencies,
     CurrencyChangingTypes,
     CURRENCY_CONVERTER_BASE_URL,
     CurrencyDateFormats,
     DAYS_BEFORE_CNT,
-} from "../../assets/js/const";
-import roundFractional from "../../assets/js/utils/roundFractional";
-import dayjs from "dayjs";
+} from '../../assets/js/const';
+import roundFractional from '../../assets/js/utils/roundFractional';
+import dayjs from 'dayjs';
 
 import './Converter.scss';
 import '../../assets/style/plugins/select.scss';
-import "react-datepicker/dist/react-datepicker.css";
+import 'react-datepicker/dist/react-datepicker.css';
 
 registerLocale('ru', ru);
 
@@ -38,8 +38,8 @@ const Converter = () => {
     const [currencyFrom, setCurrencyFrom] = useState(getSelectOption(InitialConversationCurrencies.FROM));
     const [currencyTo, setCurrencyTo] = useState(getSelectOption(InitialConversationCurrencies.TO));
     const [currentType, setCurrentType] = useState(CurrencyChangingTypes.FROM);
-    const [availableValue, setAvailableValue] = useState(MIN_MONETARY_VALUE);
-    const [desiredValue, setDesiredValue] = useState(MIN_MONETARY_VALUE);
+    const [availableValue, setAvailableValue] = useState(MonetaryValues.MIN);
+    const [desiredValue, setDesiredValue] = useState(MonetaryValues.MIN);
     const [isFetching, setIsFetching] = useState(false);
     const [isError, setIsError] = useState(false);
     const [currencyMultiplier, setCurrencyMultiplier] = useState(null);
@@ -130,7 +130,8 @@ const Converter = () => {
                                                 className='converter__input converter__input--number'
                                                 type='number'
                                                 name='available-amount'
-                                                min={ MIN_MONETARY_VALUE }
+                                                min={ MonetaryValues.MIN }
+                                                max={ MonetaryValues.MAX }
                                                 value={ availableValue }
                                                 onChange={ (e) => handleValueChange(e.target.value, CurrencyChangingTypes.FROM) }
                                             />
@@ -151,7 +152,8 @@ const Converter = () => {
                                                 className='converter__input converter__input--number'
                                                 type='number'
                                                 name='desired-amount'
-                                                min={ MIN_MONETARY_VALUE }
+                                                min={ MonetaryValues.MIN }
+                                                max={ MonetaryValues.MAX }
                                                 value={ desiredValue }
                                                 onChange={ (e) => handleValueChange(e.target.value, CurrencyChangingTypes.TO) }
                                             />
@@ -167,7 +169,7 @@ const Converter = () => {
                                     </div>
                                 </div>
 
-                                <div className="converter__footer">
+                                <div className='converter__footer'>
                                     <div className='converter__input-block converter__input-block--date'>
                                         <DatePicker
                                             selected={date}
